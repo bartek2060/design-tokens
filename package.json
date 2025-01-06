@@ -1,0 +1,44 @@
+{
+  "name": "@mogielski/design-tokens",
+  "version": "1.0.0",
+  "description": "A design tokens processor that converts JSON to SCSS and TypeScript types",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "design-tokens": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "gen-example": "ts-node src/cli.ts -i example/tokens.json -o example/output",
+    "dev": "ts-node-dev --respawn src/cli.ts",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "design-tokens",
+    "scss",
+    "typescript",
+    "css",
+    "design-system"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
