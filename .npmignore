@@ -1,0 +1,8 @@
+src/
+example/
+.eslintrc.json
+.prettierrc
+tsconfig.json
+.gitignore
+*.log
+.DS_Store 
