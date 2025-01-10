@@ -2,6 +2,8 @@
 
 A tool to convert design tokens from JSON format into SCSS variables, utility classes, TypeScript types, and a simple HTML doc.
 
+See `example` for a very simple example of how you would hook this up in your project.
+
 ## Installation
 
 ```bash

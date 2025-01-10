@@ -6,6 +6,8 @@ export default function generateStyles(obj: DesignToken) {
     SCSS_VARIABLES: [],
     SCSS_UTILITIES: [],
   };
+  // Store breakpoint utilities to group them later
+  const breakpointUtilities: Record<string, string[]> = {};
 
   function generateStylesInner(obj: DesignToken, path: string[] = [], settings: TokenSettings = {}) {
     const currentSettings = { ...obj[SETTINGS_KEY], ...settings };
@@ -17,9 +19,7 @@ export default function generateStyles(obj: DesignToken) {
       const currentObjectPath = [...path, key];
 
       if (typeof currentSettings.utilityBreakpoints === "string") {
-        // if we still haven't found the exact breakpoints
         if (obj[currentSettings.utilityBreakpoints]) {
-          // then we look for them again, and set them for the next iteration
           currentSettings.utilityBreakpoints = obj[currentSettings.utilityBreakpoints];
         }
       }
@@ -31,6 +31,10 @@ export default function generateStyles(obj: DesignToken) {
           settings: currentSettings,
           addToOutput: (key, value) => {
             output[key]!.push(value);
+          },
+          addToBreakpointUtilities: (breakpoint, value) => {
+            breakpointUtilities[breakpoint] = breakpointUtilities[breakpoint] || [];
+            breakpointUtilities[breakpoint].push(value);
           },
         });
 
@@ -45,6 +49,11 @@ export default function generateStyles(obj: DesignToken) {
 
   generateStylesInner(obj);
 
+  // Add grouped breakpoint utilities to the output
+  Object.entries(breakpointUtilities).forEach(([breakpoint, utilities]) => {
+    output.SCSS_UTILITIES!.push(`@media (min-width: ${breakpoint}) {\n  ${utilities.join("\n  ")}\n}`);
+  });
+
   return output;
 }
 
@@ -53,11 +62,13 @@ function generateToken({
   tokenPath,
   settings,
   addToOutput,
+  addToBreakpointUtilities,
 }: {
   tokenValue: string;
   tokenPath: string[];
   settings?: TokenSettings;
   addToOutput: (key: keyof FileBuild, value: string) => void;
+  addToBreakpointUtilities: (breakpoint: string, value: string) => void;
 }) {
   const variableName = cssKey("$", tokenPath);
   addToOutput("SCSS_VARIABLES", `${variableName}: ${tokenValue};`);
@@ -85,10 +96,7 @@ function generateToken({
             breakpoint + SCSS_UTILITY_BREAKPOINT_SEPARATOR + util.className,
             tokenValueName,
           ]);
-          addToOutput(
-            "SCSS_UTILITIES",
-            `@media (min-width: ${minWidth}) {\n  ${breakpointClassName} {  ${declaration}  }\n}`
-          );
+          addToBreakpointUtilities(String(minWidth), `${breakpointClassName} {  ${declaration}  }`);
         });
       }
     });

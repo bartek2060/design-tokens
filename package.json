@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "gen-example": "ts-node src/cli.ts -i example/tokens.json -o example/output",
+    "gen-example": "ts-node src/cli.ts -i example/src/@design/tokens.json -o example/src/@design/build",
     "dev": "ts-node-dev --respawn src/cli.ts",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"src/**/*.ts\"",

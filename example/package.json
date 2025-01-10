@@ -1,0 +1,18 @@
+{
+    "name": "just-some-frontend-project",
+    "scripts": {
+        ...
+        "build": "npm run design-tokens && next build",
+        "dev": "concurrently \"npm run design-tokens\" \"next dev\"",
+        "design-tokens": "design-tokens -i src/@design/tokens.json -o src/@design/build"
+        ...
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+      "@mogielski/design-tokens": "^1.0.1",
+      "concurrently": "^9.0.0",
+      ...
+    }
+  }
+  
