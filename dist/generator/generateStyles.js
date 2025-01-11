@@ -6,7 +6,7 @@ exports.ensureArray = ensureArray;
 const constants_1 = require("../constants");
 function generateStyles(obj) {
     const output = {
-        SCSS_VARIABLES: [`@use '${constants_1.OUTPUT_FILES.SCSS_MAPS}' as *;`],
+        SCSS_VARIABLES: [`@use './${constants_1.OUTPUT_FILES.SCSS_MAPS}' as *;`],
         SCSS_UTILITIES: [],
         SCSS_MAPS: [],
     };
