@@ -1,16 +1,18 @@
 import type { DesignToken, FileBuild, TokenSettings } from "../types";
-import { SCSS_UTILITY_BREAKPOINT_SEPARATOR, SCSS_VARIABLE_SEPARATOR, SETTINGS_KEY } from "../constants";
+import { OUTPUT_FILES, SCSS_UTILITY_BREAKPOINT_SEPARATOR, SCSS_VARIABLE_SEPARATOR, SETTINGS_KEY } from "../constants";
 
 export default function generateStyles(obj: DesignToken) {
   const output: FileBuild = {
-    SCSS_VARIABLES: [],
+    SCSS_VARIABLES: [`@use '${OUTPUT_FILES.SCSS_MAPS}' as *;`],
     SCSS_UTILITIES: [],
+    SCSS_MAPS: [],
   };
   // Store breakpoint utilities to group them later
   const breakpointUtilities: Record<string, string[]> = {};
 
   function generateStylesInner(obj: DesignToken, path: string[] = [], settings: TokenSettings = {}) {
     const currentSettings = { ...obj[SETTINGS_KEY], ...settings };
+    const currentMapEntries: string[] = [];
 
     for (const [key, v] of Object.entries(obj)) {
       if (key === SETTINGS_KEY || typeof v === "undefined") continue;
@@ -38,12 +40,22 @@ export default function generateStyles(obj: DesignToken) {
           },
         });
 
+        // Add entry to current map
+        const tokenName = currentObjectPath[currentObjectPath.length - 1];
+        currentMapEntries.push(`  "${tokenName}": ${designToken}`);
         continue;
       }
 
       generateStylesInner(designToken, currentObjectPath, { ...currentSettings, ...designToken?.[SETTINGS_KEY] });
       output.SCSS_VARIABLES!.push("");
       output.SCSS_UTILITIES!.push("");
+    }
+
+    // Generate map for current level if there are entries
+    if (currentMapEntries.length > 0) {
+      const mapName = cssKey("$", [...path, "values", "map"]);
+
+      output.SCSS_MAPS!.push(`${mapName}: (\n${currentMapEntries.join(",\n")}\n);`);
     }
   }
 

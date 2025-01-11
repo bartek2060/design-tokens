@@ -9,7 +9,7 @@ export default function generateTypes(obj: DesignToken) {
 
   // Helper function to convert token path to type name
   function pathToTypeName(path: string[]): string {
-    return path.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join("");
+    return capitalizeStringArray(path).join("").split("-").join("");
   }
 
   // Helper function to generate types recursively
@@ -44,4 +44,8 @@ export default function generateTypes(obj: DesignToken) {
   output.TYPES!.push(...types);
 
   return output;
+}
+
+function capitalizeStringArray(str: string[]) {
+  return str.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
 }

@@ -1,0 +1,28 @@
+$colors-primary-values-map: (
+  "main": #1976d2,
+  "light": #42a5f5,
+  "dark": #1565c0
+);
+$colors-text-values-map: (
+  "primary": #000000,
+  "secondary": #666666
+);
+$spacing-values-map: (
+  "small": 0.5rem,
+  "medium": 1rem,
+  "large": 2rem
+);
+$breakpoints-values-map: (
+  "mobile": 320px,
+  "tablet": 768px,
+  "desktop": 1024px
+);
+$typography-fontFamily-values-map: (
+  "primary": Arial, sans-serif,
+  "secondary": Georgia, serif
+);
+$typography-fontSize-values-map: (
+  "small": 0.875rem,
+  "medium": 1rem,
+  "large": 1.25rem
+);
