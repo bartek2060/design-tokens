@@ -4,6 +4,7 @@ export declare const SCSS_UTILITY_BREAKPOINT_SEPARATOR = ":";
 export declare const OUTPUT_FILES: {
     readonly SCSS_VARIABLES: "_variables.scss";
     readonly SCSS_UTILITIES: "_utilities.scss";
+    readonly SCSS_MAPS: "_maps.scss";
     readonly TYPES: "types.ts";
     readonly DOCUMENTATION: "documentation.html";
 };

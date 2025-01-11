@@ -8,7 +8,7 @@ function generateTypes(obj) {
     };
     // Helper function to convert token path to type name
     function pathToTypeName(path) {
-        return path.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join("");
+        return capitalizeStringArray(path).join("").split("-").join("");
     }
     // Helper function to generate types recursively
     function generateTypesInner(obj, path = []) {
@@ -38,4 +38,7 @@ function generateTypes(obj) {
     const types = generateTypesInner(obj);
     output.TYPES.push(...types);
     return output;
+}
+function capitalizeStringArray(str) {
+    return str.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
 }

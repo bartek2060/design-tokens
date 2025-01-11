@@ -3,7 +3,7 @@ import { OUTPUT_FILES, SCSS_UTILITY_BREAKPOINT_SEPARATOR, SCSS_VARIABLE_SEPARATO
 
 export default function generateStyles(obj: DesignToken) {
   const output: FileBuild = {
-    SCSS_VARIABLES: [`@use '${OUTPUT_FILES.SCSS_MAPS}' as *;`],
+    SCSS_VARIABLES: [`@use './${OUTPUT_FILES.SCSS_MAPS}' as *;`],
     SCSS_UTILITIES: [],
     SCSS_MAPS: [],
   };

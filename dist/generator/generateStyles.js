@@ -6,20 +6,22 @@ exports.ensureArray = ensureArray;
 const constants_1 = require("../constants");
 function generateStyles(obj) {
     const output = {
-        SCSS_VARIABLES: [],
+        SCSS_VARIABLES: [`@use '${constants_1.OUTPUT_FILES.SCSS_MAPS}' as *;`],
         SCSS_UTILITIES: [],
+        SCSS_MAPS: [],
     };
+    // Store breakpoint utilities to group them later
+    const breakpointUtilities = {};
     function generateStylesInner(obj, path = [], settings = {}) {
         const currentSettings = { ...obj[constants_1.SETTINGS_KEY], ...settings };
+        const currentMapEntries = [];
         for (const [key, v] of Object.entries(obj)) {
             if (key === constants_1.SETTINGS_KEY || typeof v === "undefined")
                 continue;
             const designToken = v;
             const currentObjectPath = [...path, key];
             if (typeof currentSettings.utilityBreakpoints === "string") {
-                // if we still haven't found the exact breakpoints
                 if (obj[currentSettings.utilityBreakpoints]) {
-                    // then we look for them again, and set them for the next iteration
                     currentSettings.utilityBreakpoints = obj[currentSettings.utilityBreakpoints];
                 }
             }
@@ -31,18 +33,34 @@ function generateStyles(obj) {
                     addToOutput: (key, value) => {
                         output[key].push(value);
                     },
+                    addToBreakpointUtilities: (breakpoint, value) => {
+                        breakpointUtilities[breakpoint] = breakpointUtilities[breakpoint] || [];
+                        breakpointUtilities[breakpoint].push(value);
+                    },
                 });
+                // Add entry to current map
+                const tokenName = currentObjectPath[currentObjectPath.length - 1];
+                currentMapEntries.push(`  "${tokenName}": ${designToken}`);
                 continue;
             }
             generateStylesInner(designToken, currentObjectPath, { ...currentSettings, ...designToken?.[constants_1.SETTINGS_KEY] });
             output.SCSS_VARIABLES.push("");
             output.SCSS_UTILITIES.push("");
         }
+        // Generate map for current level if there are entries
+        if (currentMapEntries.length > 0) {
+            const mapName = cssKey("$", [...path, "values", "map"]);
+            output.SCSS_MAPS.push(`${mapName}: (\n${currentMapEntries.join(",\n")}\n);`);
+        }
     }
     generateStylesInner(obj);
+    // Add grouped breakpoint utilities to the output
+    Object.entries(breakpointUtilities).forEach(([breakpoint, utilities]) => {
+        output.SCSS_UTILITIES.push(`@media (min-width: ${breakpoint}) {\n  ${utilities.join("\n  ")}\n}`);
+    });
     return output;
 }
-function generateToken({ tokenValue, tokenPath, settings, addToOutput, }) {
+function generateToken({ tokenValue, tokenPath, settings, addToOutput, addToBreakpointUtilities, }) {
     const variableName = cssKey("$", tokenPath);
     addToOutput("SCSS_VARIABLES", `${variableName}: ${tokenValue};`);
     if (!settings)
@@ -65,7 +83,7 @@ function generateToken({ tokenValue, tokenPath, settings, addToOutput, }) {
                         breakpoint + constants_1.SCSS_UTILITY_BREAKPOINT_SEPARATOR + util.className,
                         tokenValueName,
                     ]);
-                    addToOutput("SCSS_UTILITIES", `@media (min-width: ${minWidth}) {\n  ${breakpointClassName} {  ${declaration}  }\n}`);
+                    addToBreakpointUtilities(String(minWidth), `${breakpointClassName} {  ${declaration}  }`);
                 });
             }
         });
