@@ -1,24 +1,51 @@
-@use '_maps.scss' as *;
 $colors-primary-main: #1976d2;
 $colors-primary-light: #42a5f5;
 $colors-primary-dark: #1565c0;
+$colors-primary-values-map: (
+  "main": #1976d2,
+  "light": #42a5f5,
+  "dark": #1565c0
+);
 
 $colors-text-primary: #000000;
 $colors-text-secondary: #666666;
+$colors-text-values-map: (
+  "primary": #000000,
+  "secondary": #666666
+);
 
 
 $spacing-small: 0.5rem;
 $spacing-medium: 1rem;
 $spacing-large: 2rem;
+$spacing-values-map: (
+  "small": 0.5rem,
+  "medium": 1rem,
+  "large": 2rem
+);
 
 $breakpoints-mobile: 320px;
 $breakpoints-tablet: 768px;
 $breakpoints-desktop: 1024px;
+$breakpoints-values-map: (
+  "mobile": 320px,
+  "tablet": 768px,
+  "desktop": 1024px
+);
 
 $typography-fontFamily-primary: Arial, sans-serif;
 $typography-fontFamily-secondary: Georgia, serif;
+$typography-fontFamily-values-map: (
+  "primary": Arial, sans-serif,
+  "secondary": Georgia, serif
+);
 
 $typography-fontSize-small: 0.875rem;
 $typography-fontSize-medium: 1rem;
 $typography-fontSize-large: 1.25rem;
+$typography-fontSize-values-map: (
+  "small": 0.875rem,
+  "medium": 1rem,
+  "large": 1.25rem
+);
 

@@ -33,86 +33,86 @@
 
 
 @media (min-width: 320px) {
-  .mobile:bg-main {  background-color: #1976d2 !important;  }
-  .mobile:bg-light {  background-color: #42a5f5 !important;  }
-  .mobile:bg-dark {  background-color: #1565c0 !important;  }
-  .mobile:text-primary {  color: #000000 !important;  }
-  .mobile:text-secondary {  color: #666666 !important;  }
-  .mobile:m-small {  margin: 0.5rem !important;  }
-  .mobile:ml-small {  margin-left: 0.5rem !important;  }
-  .mobile:mr-small {  margin-right: 0.5rem !important;  }
-  .mobile:mt-small {  margin-top: 0.5rem !important;  }
-  .mobile:mb-small {  margin-bottom: 0.5rem !important;  }
-  .mobile:mx-small {  margin-left: 0.5rem !important; margin-right: 0.5rem !important;  }
-  .mobile:my-small {  margin-top: 0.5rem !important; margin-bottom: 0.5rem !important;  }
-  .mobile:m-medium {  margin: 1rem !important;  }
-  .mobile:ml-medium {  margin-left: 1rem !important;  }
-  .mobile:mr-medium {  margin-right: 1rem !important;  }
-  .mobile:mt-medium {  margin-top: 1rem !important;  }
-  .mobile:mb-medium {  margin-bottom: 1rem !important;  }
-  .mobile:mx-medium {  margin-left: 1rem !important; margin-right: 1rem !important;  }
-  .mobile:my-medium {  margin-top: 1rem !important; margin-bottom: 1rem !important;  }
-  .mobile:m-large {  margin: 2rem !important;  }
-  .mobile:ml-large {  margin-left: 2rem !important;  }
-  .mobile:mr-large {  margin-right: 2rem !important;  }
-  .mobile:mt-large {  margin-top: 2rem !important;  }
-  .mobile:mb-large {  margin-bottom: 2rem !important;  }
-  .mobile:mx-large {  margin-left: 2rem !important; margin-right: 2rem !important;  }
-  .mobile:my-large {  margin-top: 2rem !important; margin-bottom: 2rem !important;  }
+  .mobile\:bg-main {  background-color: #1976d2 !important;  }
+  .mobile\:bg-light {  background-color: #42a5f5 !important;  }
+  .mobile\:bg-dark {  background-color: #1565c0 !important;  }
+  .mobile\:text-primary {  color: #000000 !important;  }
+  .mobile\:text-secondary {  color: #666666 !important;  }
+  .mobile\:m-small {  margin: 0.5rem !important;  }
+  .mobile\:ml-small {  margin-left: 0.5rem !important;  }
+  .mobile\:mr-small {  margin-right: 0.5rem !important;  }
+  .mobile\:mt-small {  margin-top: 0.5rem !important;  }
+  .mobile\:mb-small {  margin-bottom: 0.5rem !important;  }
+  .mobile\:mx-small {  margin-left: 0.5rem !important; margin-right: 0.5rem !important;  }
+  .mobile\:my-small {  margin-top: 0.5rem !important; margin-bottom: 0.5rem !important;  }
+  .mobile\:m-medium {  margin: 1rem !important;  }
+  .mobile\:ml-medium {  margin-left: 1rem !important;  }
+  .mobile\:mr-medium {  margin-right: 1rem !important;  }
+  .mobile\:mt-medium {  margin-top: 1rem !important;  }
+  .mobile\:mb-medium {  margin-bottom: 1rem !important;  }
+  .mobile\:mx-medium {  margin-left: 1rem !important; margin-right: 1rem !important;  }
+  .mobile\:my-medium {  margin-top: 1rem !important; margin-bottom: 1rem !important;  }
+  .mobile\:m-large {  margin: 2rem !important;  }
+  .mobile\:ml-large {  margin-left: 2rem !important;  }
+  .mobile\:mr-large {  margin-right: 2rem !important;  }
+  .mobile\:mt-large {  margin-top: 2rem !important;  }
+  .mobile\:mb-large {  margin-bottom: 2rem !important;  }
+  .mobile\:mx-large {  margin-left: 2rem !important; margin-right: 2rem !important;  }
+  .mobile\:my-large {  margin-top: 2rem !important; margin-bottom: 2rem !important;  }
 }
 @media (min-width: 768px) {
-  .tablet:bg-main {  background-color: #1976d2 !important;  }
-  .tablet:bg-light {  background-color: #42a5f5 !important;  }
-  .tablet:bg-dark {  background-color: #1565c0 !important;  }
-  .tablet:text-primary {  color: #000000 !important;  }
-  .tablet:text-secondary {  color: #666666 !important;  }
-  .tablet:m-small {  margin: 0.5rem !important;  }
-  .tablet:ml-small {  margin-left: 0.5rem !important;  }
-  .tablet:mr-small {  margin-right: 0.5rem !important;  }
-  .tablet:mt-small {  margin-top: 0.5rem !important;  }
-  .tablet:mb-small {  margin-bottom: 0.5rem !important;  }
-  .tablet:mx-small {  margin-left: 0.5rem !important; margin-right: 0.5rem !important;  }
-  .tablet:my-small {  margin-top: 0.5rem !important; margin-bottom: 0.5rem !important;  }
-  .tablet:m-medium {  margin: 1rem !important;  }
-  .tablet:ml-medium {  margin-left: 1rem !important;  }
-  .tablet:mr-medium {  margin-right: 1rem !important;  }
-  .tablet:mt-medium {  margin-top: 1rem !important;  }
-  .tablet:mb-medium {  margin-bottom: 1rem !important;  }
-  .tablet:mx-medium {  margin-left: 1rem !important; margin-right: 1rem !important;  }
-  .tablet:my-medium {  margin-top: 1rem !important; margin-bottom: 1rem !important;  }
-  .tablet:m-large {  margin: 2rem !important;  }
-  .tablet:ml-large {  margin-left: 2rem !important;  }
-  .tablet:mr-large {  margin-right: 2rem !important;  }
-  .tablet:mt-large {  margin-top: 2rem !important;  }
-  .tablet:mb-large {  margin-bottom: 2rem !important;  }
-  .tablet:mx-large {  margin-left: 2rem !important; margin-right: 2rem !important;  }
-  .tablet:my-large {  margin-top: 2rem !important; margin-bottom: 2rem !important;  }
+  .tablet\:bg-main {  background-color: #1976d2 !important;  }
+  .tablet\:bg-light {  background-color: #42a5f5 !important;  }
+  .tablet\:bg-dark {  background-color: #1565c0 !important;  }
+  .tablet\:text-primary {  color: #000000 !important;  }
+  .tablet\:text-secondary {  color: #666666 !important;  }
+  .tablet\:m-small {  margin: 0.5rem !important;  }
+  .tablet\:ml-small {  margin-left: 0.5rem !important;  }
+  .tablet\:mr-small {  margin-right: 0.5rem !important;  }
+  .tablet\:mt-small {  margin-top: 0.5rem !important;  }
+  .tablet\:mb-small {  margin-bottom: 0.5rem !important;  }
+  .tablet\:mx-small {  margin-left: 0.5rem !important; margin-right: 0.5rem !important;  }
+  .tablet\:my-small {  margin-top: 0.5rem !important; margin-bottom: 0.5rem !important;  }
+  .tablet\:m-medium {  margin: 1rem !important;  }
+  .tablet\:ml-medium {  margin-left: 1rem !important;  }
+  .tablet\:mr-medium {  margin-right: 1rem !important;  }
+  .tablet\:mt-medium {  margin-top: 1rem !important;  }
+  .tablet\:mb-medium {  margin-bottom: 1rem !important;  }
+  .tablet\:mx-medium {  margin-left: 1rem !important; margin-right: 1rem !important;  }
+  .tablet\:my-medium {  margin-top: 1rem !important; margin-bottom: 1rem !important;  }
+  .tablet\:m-large {  margin: 2rem !important;  }
+  .tablet\:ml-large {  margin-left: 2rem !important;  }
+  .tablet\:mr-large {  margin-right: 2rem !important;  }
+  .tablet\:mt-large {  margin-top: 2rem !important;  }
+  .tablet\:mb-large {  margin-bottom: 2rem !important;  }
+  .tablet\:mx-large {  margin-left: 2rem !important; margin-right: 2rem !important;  }
+  .tablet\:my-large {  margin-top: 2rem !important; margin-bottom: 2rem !important;  }
 }
 @media (min-width: 1024px) {
-  .desktop:bg-main {  background-color: #1976d2 !important;  }
-  .desktop:bg-light {  background-color: #42a5f5 !important;  }
-  .desktop:bg-dark {  background-color: #1565c0 !important;  }
-  .desktop:text-primary {  color: #000000 !important;  }
-  .desktop:text-secondary {  color: #666666 !important;  }
-  .desktop:m-small {  margin: 0.5rem !important;  }
-  .desktop:ml-small {  margin-left: 0.5rem !important;  }
-  .desktop:mr-small {  margin-right: 0.5rem !important;  }
-  .desktop:mt-small {  margin-top: 0.5rem !important;  }
-  .desktop:mb-small {  margin-bottom: 0.5rem !important;  }
-  .desktop:mx-small {  margin-left: 0.5rem !important; margin-right: 0.5rem !important;  }
-  .desktop:my-small {  margin-top: 0.5rem !important; margin-bottom: 0.5rem !important;  }
-  .desktop:m-medium {  margin: 1rem !important;  }
-  .desktop:ml-medium {  margin-left: 1rem !important;  }
-  .desktop:mr-medium {  margin-right: 1rem !important;  }
-  .desktop:mt-medium {  margin-top: 1rem !important;  }
-  .desktop:mb-medium {  margin-bottom: 1rem !important;  }
-  .desktop:mx-medium {  margin-left: 1rem !important; margin-right: 1rem !important;  }
-  .desktop:my-medium {  margin-top: 1rem !important; margin-bottom: 1rem !important;  }
-  .desktop:m-large {  margin: 2rem !important;  }
-  .desktop:ml-large {  margin-left: 2rem !important;  }
-  .desktop:mr-large {  margin-right: 2rem !important;  }
-  .desktop:mt-large {  margin-top: 2rem !important;  }
-  .desktop:mb-large {  margin-bottom: 2rem !important;  }
-  .desktop:mx-large {  margin-left: 2rem !important; margin-right: 2rem !important;  }
-  .desktop:my-large {  margin-top: 2rem !important; margin-bottom: 2rem !important;  }
+  .desktop\:bg-main {  background-color: #1976d2 !important;  }
+  .desktop\:bg-light {  background-color: #42a5f5 !important;  }
+  .desktop\:bg-dark {  background-color: #1565c0 !important;  }
+  .desktop\:text-primary {  color: #000000 !important;  }
+  .desktop\:text-secondary {  color: #666666 !important;  }
+  .desktop\:m-small {  margin: 0.5rem !important;  }
+  .desktop\:ml-small {  margin-left: 0.5rem !important;  }
+  .desktop\:mr-small {  margin-right: 0.5rem !important;  }
+  .desktop\:mt-small {  margin-top: 0.5rem !important;  }
+  .desktop\:mb-small {  margin-bottom: 0.5rem !important;  }
+  .desktop\:mx-small {  margin-left: 0.5rem !important; margin-right: 0.5rem !important;  }
+  .desktop\:my-small {  margin-top: 0.5rem !important; margin-bottom: 0.5rem !important;  }
+  .desktop\:m-medium {  margin: 1rem !important;  }
+  .desktop\:ml-medium {  margin-left: 1rem !important;  }
+  .desktop\:mr-medium {  margin-right: 1rem !important;  }
+  .desktop\:mt-medium {  margin-top: 1rem !important;  }
+  .desktop\:mb-medium {  margin-bottom: 1rem !important;  }
+  .desktop\:mx-medium {  margin-left: 1rem !important; margin-right: 1rem !important;  }
+  .desktop\:my-medium {  margin-top: 1rem !important; margin-bottom: 1rem !important;  }
+  .desktop\:m-large {  margin: 2rem !important;  }
+  .desktop\:ml-large {  margin-left: 2rem !important;  }
+  .desktop\:mr-large {  margin-right: 2rem !important;  }
+  .desktop\:mt-large {  margin-top: 2rem !important;  }
+  .desktop\:mb-large {  margin-bottom: 2rem !important;  }
+  .desktop\:mx-large {  margin-left: 2rem !important; margin-right: 2rem !important;  }
+  .desktop\:my-large {  margin-top: 2rem !important; margin-bottom: 2rem !important;  }
 }

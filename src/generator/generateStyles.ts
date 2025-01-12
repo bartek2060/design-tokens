@@ -1,11 +1,10 @@
 import type { DesignToken, FileBuild, TokenSettings } from "../types";
-import { OUTPUT_FILES, SCSS_UTILITY_BREAKPOINT_SEPARATOR, SCSS_VARIABLE_SEPARATOR, SETTINGS_KEY } from "../constants";
+import { SCSS_UTILITY_BREAKPOINT_SEPARATOR, SCSS_VARIABLE_SEPARATOR, SETTINGS_KEY } from "../constants";
 
 export default function generateStyles(obj: DesignToken) {
   const output: FileBuild = {
-    SCSS_VARIABLES: [`@use './${OUTPUT_FILES.SCSS_MAPS}' as *;`],
+    SCSS_VARIABLES: [],
     SCSS_UTILITIES: [],
-    SCSS_MAPS: [],
   };
   // Store breakpoint utilities to group them later
   const breakpointUtilities: Record<string, string[]> = {};
@@ -55,7 +54,7 @@ export default function generateStyles(obj: DesignToken) {
     if (currentMapEntries.length > 0) {
       const mapName = cssKey("$", [...path, "values", "map"]);
 
-      output.SCSS_MAPS!.push(`${mapName}: (\n${currentMapEntries.join(",\n")}\n);`);
+      output.SCSS_VARIABLES!.push(`${mapName}: (\n${currentMapEntries.join(",\n")}\n);`);
     }
   }
 
