@@ -1,6 +1,6 @@
 {
   "name": "@mogielski/design-tokens",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A design tokens processor that converts JSON to SCSS and TypeScript types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
