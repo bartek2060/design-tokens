@@ -7,7 +7,6 @@ exports.SCSS_UTILITY_BREAKPOINT_SEPARATOR = "\\:";
 exports.OUTPUT_FILES = {
     SCSS_VARIABLES: "_variables.scss",
     SCSS_UTILITIES: "_utilities.scss",
-    SCSS_MAPS: "_maps.scss",
     TYPES: "types.ts",
     DOCUMENTATION: "documentation.html",
 };

@@ -6,9 +6,8 @@ exports.ensureArray = ensureArray;
 const constants_1 = require("../constants");
 function generateStyles(obj) {
     const output = {
-        SCSS_VARIABLES: [`@use './${constants_1.OUTPUT_FILES.SCSS_MAPS}' as *;`],
-        SCSS_UTILITIES: [],
-        SCSS_MAPS: [],
+        SCSS_VARIABLES: [],
+        SCSS_UTILITIES: [`@use "${constants_1.OUTPUT_FILES.SCSS_VARIABLES}" as *;`],
     };
     // Store breakpoint utilities to group them later
     const breakpointUtilities = {};
@@ -50,7 +49,7 @@ function generateStyles(obj) {
         // Generate map for current level if there are entries
         if (currentMapEntries.length > 0) {
             const mapName = cssKey("$", [...path, "values", "map"]);
-            output.SCSS_MAPS.push(`${mapName}: (\n${currentMapEntries.join(",\n")}\n);`);
+            output.SCSS_VARIABLES.push(`${mapName}: (\n${currentMapEntries.join(",\n")}\n);`);
         }
     }
     generateStylesInner(obj);
@@ -77,7 +76,8 @@ function generateToken({ tokenValue, tokenPath, settings, addToOutput, addToBrea
             addToOutput("SCSS_UTILITIES", `${className} {  ${declaration}  }`);
             // Generate breakpoint-specific utilities if breakpoints are defined
             if (settings.utilityBreakpoints && typeof settings.utilityBreakpoints !== "string") {
-                const breakpoints = settings.utilityBreakpoints;
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                const { [constants_1.SETTINGS_KEY]: _omittedSettingsKey_, ...breakpoints } = settings.utilityBreakpoints;
                 Object.entries(breakpoints).forEach(([breakpoint, minWidth]) => {
                     const breakpointClassName = cssKey(".", [
                         breakpoint + constants_1.SCSS_UTILITY_BREAKPOINT_SEPARATOR + util.className,

@@ -1,10 +1,10 @@
 import type { DesignToken, FileBuild, TokenSettings } from "../types";
-import { SCSS_UTILITY_BREAKPOINT_SEPARATOR, SCSS_VARIABLE_SEPARATOR, SETTINGS_KEY } from "../constants";
+import { OUTPUT_FILES, SCSS_UTILITY_BREAKPOINT_SEPARATOR, SCSS_VARIABLE_SEPARATOR, SETTINGS_KEY } from "../constants";
 
 export default function generateStyles(obj: DesignToken) {
   const output: FileBuild = {
     SCSS_VARIABLES: [],
-    SCSS_UTILITIES: [],
+    SCSS_UTILITIES: [`@use "${OUTPUT_FILES.SCSS_VARIABLES}" as *;`],
   };
   // Store breakpoint utilities to group them later
   const breakpointUtilities: Record<string, string[]> = {};
@@ -101,7 +101,8 @@ function generateToken({
 
       // Generate breakpoint-specific utilities if breakpoints are defined
       if (settings.utilityBreakpoints && typeof settings.utilityBreakpoints !== "string") {
-        const breakpoints = settings.utilityBreakpoints;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { [SETTINGS_KEY]: _omittedSettingsKey_, ...breakpoints } = settings.utilityBreakpoints;
         Object.entries(breakpoints).forEach(([breakpoint, minWidth]) => {
           const breakpointClassName = cssKey(".", [
             breakpoint + SCSS_UTILITY_BREAKPOINT_SEPARATOR + util.className,
